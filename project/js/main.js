@@ -41,13 +41,50 @@ function initMegaMenuModels() {
   });
 }
 
+// ===== Menú de modelos (versión móvil)
+function initMobileModelsMenu() {
+  // Mostrar/ocultar el submenú de categorías
+  const modelsBtn = document.getElementById('modelsMobileBtn');
+  const modelsSubmenu = document.getElementById('modelsMobileSubmenu');
+  if (modelsBtn && modelsSubmenu) {
+    modelsBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      modelsSubmenu.style.display = modelsSubmenu.style.display === 'block' ? 'none' : 'block';
+    });
+  }
+
+  // Mostrar/ocultar la lista de motos por categoría
+  document.querySelectorAll('.category-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const cat = link.getAttribute('data-category');
+      document.querySelectorAll('.models-list').forEach(list => {
+        list.style.display = (list.getAttribute('data-list') === cat && list.style.display !== 'block') ? 'block' : 'none';
+      });
+    });
+  });
+
+  // Cerrar menú móvil al hacer clic en un modelo
+  document.querySelectorAll('.models-list a').forEach(link => {
+    link.addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileMenu) {
+        mobileMenu.classList.remove('active');
+      }
+    });
+  });
+}
+
 // ===== Cargar todos los fragmentos =====
 async function loadAllComponents() {
   // Solo carga los fragmentos cuyos contenedores existan en la página actual
   if (document.getElementById('header-container')) {
     await loadFragment('header-container', 'components/header.html');
-    initHamburgerMenu();
-    initMegaMenuModels(); // <-- Agrega esta línea
+    setTimeout(() => {
+      initHamburgerMenu();
+      initMegaMenuModels();
+      initMobileModelsMenu(); 
+    }, 50);
   }
   if (document.getElementById('sidebar-container')) {
     await loadFragment('sidebar-container', 'components/sidebar.html');
@@ -132,11 +169,27 @@ function initLoginEvents() {
   });
 
   // Abrir modal
-  loginLink.addEventListener("click", (e) => {
+// Abrir modal (tanto en desktop como en móvil)
+const loginDesktop = document.getElementById("loginLink");
+const loginMobile = document.getElementById("loginLinkMobile");
+
+if (loginDesktop) {
+  loginDesktop.addEventListener("click", (e) => {
     e.preventDefault();
     loginModal.style.display = "flex";
     dropdownMenu.style.display = "none";
   });
+}
+
+if (loginMobile) {
+  loginMobile.addEventListener("click", (e) => {
+    e.preventDefault();
+    loginModal.style.display = "flex";
+    // Cerrar el menú hamburguesa
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenu) mobileMenu.classList.remove('active');
+  });
+}
 
   // Cerrar modal (botón X)
   if (closeModal) {

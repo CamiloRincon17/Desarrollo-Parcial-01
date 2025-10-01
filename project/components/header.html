@@ -3,17 +3,12 @@
     <div class="logo">MotoMax</div>
     <span class="tagline">The Land of Joy</span>
   </div>
-  <!-- Botón hamburguesa (solo móvil) -->
-  <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+
   <!-- Menú principal (desktop) -->
   <nav class="main-nav desktop-only">
     <ul>
       <li class="has-dropdown">
-        <button>MODELS ▼</button>
+        <button id="btn-models"> MODELS </button>
         <div class="mega-menu-models">
           <div class="menu-layout">
             <div class="categories">
@@ -130,11 +125,7 @@
              
             </div>
           </div>
-          <!-- Botones inferiores -->
-          <div class="menu-footer">
-            <button class="btn-gray">CONFIGURE NOW</button>
-            <button class="btn-red">CONTACT DEALER</button>
-          </div>
+         
         </div>
       </li>
      
@@ -150,14 +141,39 @@
       </div>
     </div>
   </div>
+    <!-- Botón hamburguesa (solo móvil) -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
   <!-- Menú hamburguesa (móvil) -->
   <nav class="mobile-menu" id="mobileMenu">
     <div class="close-btn" id="closeMenu">×</div>
     <ul>
-      <li><a href="#">MODELS</a></li>
-      <li><a href="#">EQUIPMENT</a></li>
-      <li><a href="#">SHOP</a></li>
-      <li><a href="#">DWP 2026</a></li>
+      <li>
+        <a href="#" id="modelsMobileBtn">MODELS ▼</a>
+        <ul id="modelsMobileSubmenu" style="display:none; margin-left: 1rem;">
+          <li>
+            <a href="#" class="category-link" data-category="naked">Naked ▶</a>
+            <ul class="models-list" data-list="naked" style="display:none; margin-left: 1rem;">
+              <li><a href="#specs-streetfighter-v4">Ducati Streetfighter V4</a></li>
+              <li><a href="#specs-zh2">Kawasaki Z H2</a></li>
+              <li><a href="#specs-ktm-1290">KTM 1290 Super Duke R</a></li>
+              <!-- Más motos naked -->
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="category-link" data-category="superbike">Superbike ▶</a>
+            <ul class="models-list" data-list="superbike" style="display:none; margin-left: 1rem;">
+              <li><a href="#specs-panigale-v4">Ducati Panigale V4</a></li>
+              <li><a href="#specs-panigale-v2">Ducati Panigale V2</a></li>
+              <!-- Más motos superbike -->
+            </ul>
+          </li>
+          <!-- Agrega más categorías igual -->
+        </ul>
+      </li>
       <li><a href="#" id="loginLinkMobile">LOGIN</a></li>
       <li><a href="#" id="signupLinkMobile">SIGN UP</a></li>
     </ul>
