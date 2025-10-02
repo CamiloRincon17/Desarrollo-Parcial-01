@@ -1,17 +1,20 @@
-<button class="sidebar-toggle-btn" >☰</button>
+<button class="sidebar-toggle-btn" id="sidebarToggle">☰</button>
 
-<aside class="app-sidebar" id="sidebar">
-  <h3>Categorías</h3>
-  <nav class="main-nav desktop-only">
+<aside id="sidebar" class="app-sidebar collapsed">
+  <div class="sidebar-header">
+    <h3>Categorías</h3>
+    <button class="collapse-btn" id="collapseBtn">←</button>
+  </div>
+  <nav class="sidebar-nav">
     <ul>
-      <li class="has-dropdown"><a href="#">Motos Nuevas</a></li>
-      <li><a href="#">Motos Usadas</a></li>
-      <li><a href="#superbike">Deportivas</a></li>
-      <li><a href="#naked">Naked</a></li>
-      <li><a href="#aventure">Aventura</a></li>
-      <li><a href="#off-road">Off Road</a></li>
-      <li><a href="#scrambler">Scrambler</a></li>
-      <li><a href="#superMotar"></a></li>
+      <li><a href="#"><span>🆕</span><span class="nav-text">Motos Nuevas</span></a></li>
+      <li><a href="#"><span>🔄</span><span class="nav-text">Motos Usadas</span></a></li>
+      <li><a href="#superbike"><span>🏎️</span><span class="nav-text">Deportivas</span></a></li>
+      <li><a href="#naked"><span>🏍️</span><span class="nav-text">Naked</span></a></li>
+      <li><a href="#adventure"><span>⛰️</span><span class="nav-text">Aventura</span></a></li>
+      <li><a href="#off-road"><span>🚜</span><span class="nav-text">Off Road</span></a></li>
+      <li><a href="#scrambler"><span>🪵</span><span class="nav-text">Scrambler</span></a></li>
+      <li><a href="#superMotar"><span>🔥</span><span class="nav-text">SuperMotar</span></a></li>
     </ul>
   </nav>
 </aside>
