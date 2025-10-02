@@ -1,0 +1,157 @@
+/* Estilos para el catálogo de motos */
+#catalogo-motos {
+    text-align: center;
+}
+
+.categoria-titulo {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin: 2rem 0 1.5rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #3498db;
+    text-align: center;
+}
+
+.motos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    justify-items: center; /* Centra los items en el grid */
+}
+
+.moto-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+    max-width: 550px; /* Limita el ancho máximo */
+    width: 100%; /* Asegura que se adapte al contenedor */
+    text-align: left; /* El contenido dentro de la tarjeta se alinea a la izquierda */
+}
+
+.moto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.moto-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #ffffff;
+}
+
+.moto-header h4 {
+    color: #000000;
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.estado {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.disponible {
+    background: #d4edda;
+    color: #155724;
+}
+
+.no-disponible {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.moto-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.7rem;
+    overflow: hidden;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.moto-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.moto-image img:hover {
+    transform: scale(1.05);
+}
+
+.moto-especificaciones {
+    margin-top: 1rem;
+}
+
+.moto-especificaciones ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.moto-especificaciones li {
+    margin: 0.5rem 0;
+    color: #555;
+    line-height: 1.4;
+}
+
+.moto-especificaciones li strong {
+    color: #2c3e50;
+}
+
+.loading {
+    text-align: center;
+    color: #666;
+    padding: 2rem;
+}
+
+.error-container {
+    text-align: center;
+    padding: 2rem;
+    color: #e74c3c;
+    background: #f8d7da;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.error-container h3 {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .categoria-titulo {
+        font-size: 1.5rem;
+    }
+    
+    .motos-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        justify-items: center;
+    }
+    
+    .moto-card {
+        padding: 1rem;
+        max-width: 100%;
+    }
+    
+    .moto-header h4 {
+        font-size: 1.2rem;
+    }
+    
+    .moto-image {
+        height: 200px;
+    }
+}

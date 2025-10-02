@@ -1,0 +1,110 @@
+{
+  "motos_por_categoria": {
+    "deportivas": [
+      {
+        "id": 1,
+        "marca": "Yamaha",
+        "modelo": "YZF-R1",
+        "año": 2023,
+        "cilindrada": 998,
+        "color": "Azul Competición",
+        "precio": 18500,
+        "disponible": true,
+        "caracteristicas": {
+          "motor": "4 tiempos, 4 cilindros en línea",
+          "potencia": "200 HP",
+          "transmision": "6 velocidades",
+          "peso": 201
+        }
+      },
+      {
+        "id": 2,
+        "marca": "Kawasaki",
+        "modelo": "Ninja ZX-14R",
+        "año": 2022,
+        "cilindrada": 1441,
+        "color": "Verde Ninja",
+        "precio": 16800,
+        "disponible": true,
+        "caracteristicas": {
+          "motor": "4 tiempos, 4 cilindros en línea",
+          "potencia": "210 HP",
+          "transmision": "6 velocidades",
+          "peso": 269
+        }
+      }
+    ],
+    "naked": [
+      {
+        "id": 3,
+        "marca": "Ducati",
+        "modelo": "Monster",
+        "año": 2023,
+        "cilindrada": 937,
+        "color": "Rojo Ducati",
+        "precio": 12995,
+        "disponible": true,
+        "caracteristicas": {
+          "motor": "L-Twin, 2 cilindros",
+          "potencia": "111 HP",
+          "transmision": "6 velocidades",
+          "peso": 188
+        }
+      }
+    ],
+    "cruiser": [
+      {
+        "id": 4,
+        "marca": "Harley-Davidson",
+        "modelo": "Fat Boy",
+        "año": 2023,
+        "cilindrada": 1868,
+        "color": "Negro Onyx",
+        "precio": 22999,
+        "disponible": true,
+        "caracteristicas": {
+          "motor": "Milwaukee-Eight 114",
+          "potencia": "94 HP",
+          "transmision": "6 velocidades",
+          "peso": 317
+        }
+      }
+    ],
+    "trail": [
+      {
+        "id": 5,
+        "marca": "BMW",
+        "modelo": "R 1250 GS",
+        "año": 2023,
+        "cilindrada": 1254,
+        "color": "Blanco Racing",
+        "precio": 18995,
+        "disponible": true,
+        "caracteristicas": {
+          "motor": "Boxer de 2 cilindros",
+          "potencia": "136 HP",
+          "transmision": "6 velocidades",
+          "peso": 249
+        }
+      }
+    ],
+    "scooter": [
+      {
+        "id": 6,
+        "marca": "Vespa",
+        "modelo": "GTS 300",
+        "año": 2023,
+        "cilindrada": 278,
+        "color": "Blanco",
+        "precio": 6999,
+        "disponible": true,
+        "caracteristicas": {
+          "motor": "Monocilíndrico 4 tiempos",
+          "potencia": "24 HP",
+          "transmision": "Automática CVT",
+          "peso": 155
+        }
+      }
+    ]
+  }
+}
