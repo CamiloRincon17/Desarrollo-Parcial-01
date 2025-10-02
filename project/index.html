@@ -29,7 +29,7 @@
 
      <!-- Plantilla de producto -->
 <template id="producto-template">
-  <article class="moto-card">
+  <article class="moto-card-template">
     <h3 class="producto-nombre"></h3>
     <img class="producto-imagen" src="" alt="">
     <ul class="producto-detalles"></ul>
@@ -37,50 +37,34 @@
   </article>
 </template>
 
-<section id="productos-dinamicos" class="moto-category">
+      </section>
+      <section id="productos-dinamicos" class="moto-category">
   <h2>Productos Destacados</h2>
   <!-- Aquí se insertarán los productos -->
 </section>
-
-   
-        <!-- Más artículos naked -->
-      </section>
-      <section id="superbike" class="moto-category">
-        <h2>Superbike</h2>
-        <!-- Artículos superbike aquí -->
-      </section>
-      <section id="adventure" class="moto-category">
-        <h2>Adventure</h2>
-        <!-- Artículos adventure aquí -->
-      </section>
-      <section id="scrambler" class="moto-category">
-        <h2>Scrambler</h2>
-        <!-- Artículos scrambler aquí -->
-      </section>
-      <section id="off-road" class="moto-category">
-        <h2>Off-Road</h2>
-        <!-- Artículos off-road aquí -->
-      </section>
-      <section id="superMotar" class="moto-category">
-        <h2>SuperMotar</h2>
-        <!-- Artículos superMotar aquí -->
-      </section>
+<!-- Añade esto en la sección donde quieras mostrar las motos -->
+<section id="motos-section" class="section">
+    <div class="container">
+        <h2>Motos Disponibles</h2>
+        <div id="catalogo-motos">
+            <!-- Las motos se cargarán aquí dinámicamente -->
+            <div class="loading">Cargando catálogo de motos...</div>
+        </div>
+    </div>
+</section>
+     
     </section>
   </main>
   
   <div id="footer-container"></div>
-  <footer>
-    <div class="footer-social">
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-youtube"></i></a>
-    </div>
-    <p>&copy; 2025 MotoMax. Todos los derechos reservados.</p>
-  </footer>
+
 
 
   <!-- Cargamos main.js (que incluye la lógica de login Y la carga del header) -->
   <script src="js/main.js"></script>
+  <script src="js/motos.js"></script>
+<!-- Scripts para el catálogo de motos (agregar después de tus scripts existentes) -->
+<link rel="stylesheet" href="css/motos.css">
 
  
 </body>

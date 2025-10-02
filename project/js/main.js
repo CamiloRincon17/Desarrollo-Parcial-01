@@ -326,7 +326,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const productos = [
     {
       nombre: "Ducati Panigale V4",
-      imagen: "https://images.ctfassets.net/x7j9qwvpvr5s/45ZhHVy4FiYaE6voY03Y5c/1a0d4a2afb24217f6ce3eeaa4fd268ff/Ducati-MY25-Panigale-V4-ergonomia-gallery-1920x1080-01.jpg",
+      imagen: "https://www.ducaticolombia.co/wp-content/uploads/2022/09/Panigale-V4-S-768x475-1.png",
       detalles: [
         "Motor: V4 Desmosedici Stradale",
         "Potencia: 215 CV",
@@ -336,7 +336,7 @@ document.addEventListener("DOMContentLoaded", function() {
     },
     {
       nombre: "Kawasaki Z H2",
-      imagen: "https://www.motorhublatam.com/wp-content/uploads/2025/05/AKT-VOGE-525-DSX-scaled.jpg",
+      imagen: "https://web2.fireboldweb.com/wp-content/uploads/2023/06/080620231686230650kawasaki-zh2-foto01.png",
       detalles: [
         "Motor: 4 cilindros en línea, 998 cc",
         "Potencia: 203 CV",
@@ -391,3 +391,14 @@ document.addEventListener('click', (e) => {
     sidebar.classList.remove('open');
   }
 });
+
+// Cargar motos cuando el documento esté listo
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        // Si tienes un archivo motos.js, asegúrate de que esté cargado
+        // La función cargarMotos se ejecutará automáticamente en motos.js
+    });
+} else {
+    // Si ya está cargado, ejecuta directamente
+    // La función cargarMotos se ejecutará automáticamente en motos.js
+}
