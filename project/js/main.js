@@ -319,7 +319,64 @@ if (loginMobile) {
 }
 
 // ===== Iniciar cuando el DOM esté listo =====
-document.addEventListener("DOMContentLoaded", loadAllComponents);
+document.addEventListener("DOMContentLoaded", function() {
+  loadAllComponents();
+
+  // Productos de ejemplo
+  const productos = [
+    {
+      nombre: "Ducati Panigale V4",
+      imagen: "https://images.ctfassets.net/x7j9qwvpvr5s/45ZhHVy4FiYaE6voY03Y5c/1a0d4a2afb24217f6ce3eeaa4fd268ff/Ducati-MY25-Panigale-V4-ergonomia-gallery-1920x1080-01.jpg",
+      detalles: [
+        "Motor: V4 Desmosedici Stradale",
+        "Potencia: 215 CV",
+        "Peso: 174 kg",
+        "Precio: Desde 25.000 €"
+      ]
+    },
+    {
+      nombre: "Kawasaki Z H2",
+      imagen: "https://www.motorhublatam.com/wp-content/uploads/2025/05/AKT-VOGE-525-DSX-scaled.jpg",
+      detalles: [
+        "Motor: 4 cilindros en línea, 998 cc",
+        "Potencia: 203 CV",
+        "Peso: 206 kg",
+        "Precio: Desde 17.999 €"
+      ]
+    },
+    {
+      nombre: "BMW S1000RR",
+      imagen: "https://www.bmw-motorrad.com/content/dam/bmw/marketBMW_Motorrad/marketBMW_Motorrad_en/global/images/models/sport/s1000rr/bmw-motorrad-s1000rr-modelhighlight-teaser-01.jpg",
+      detalles: [
+        "Motor: 4 cilindros en línea, 999 cc",
+        "Potencia: 207 CV",
+        "Peso: 197 kg",
+        "Precio: Desde 21.500 €"
+      ]
+    }
+  ];
+
+  // Renderizar productos
+  const template = document.getElementById('producto-template');
+  const contenedor = document.getElementById('productos-dinamicos');
+
+  productos.forEach(producto => {
+    const clone = template.content.cloneNode(true);
+    clone.querySelector('.producto-nombre').textContent = producto.nombre;
+    const img = clone.querySelector('.producto-imagen');
+    img.src = producto.imagen;
+    img.alt = producto.nombre;
+
+    const detallesUl = clone.querySelector('.producto-detalles');
+    producto.detalles.forEach(detalle => {
+      const li = document.createElement('li');
+      li.textContent = detalle;
+      detallesUl.appendChild(li);
+    });
+
+    contenedor.appendChild(clone);
+  });
+});
 
 
 
