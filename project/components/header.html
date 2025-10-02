@@ -1,0 +1,181 @@
+<header class="app-header">
+  <div class="header-left">
+    <div class="logo">MotoMax</div>
+    <span class="tagline">The Land of Joy</span>
+  </div>
+
+  <!-- Menú principal (desktop) -->
+  <nav class="main-nav desktop-only">
+    <ul>
+      <li class="has-dropdown">
+        <button id="btn-models"> MODELS </button>
+        <div class="mega-menu-models">
+          <div class="menu-layout">
+            <div class="categories">
+              <button class="category active" data-category="naked">Naked</button>
+              <button class="category" data-category="superbike">Superbike</button>
+              <button class="category" data-category="adventure">Adventure</button>
+              <button class="category" data-category="scrambler">Scrambler</button>
+              <button class="category" data-category="offroad">Off-Road</button>
+              
+            </div>
+            <div class="models-content">
+              <div class="category-content active" data-target="naked">
+                <div class="model-item">
+                  <a href="#specs-streetfighter-v4">
+                    <img src="https://i.pinimg.com/736x/bc/be/06/bcbe06dc0f580da23f305a882dafd494.jpg" alt="Ducati Streetfighter V4">
+                  </a>
+                  <h4>Ducati Streetfighter V4 </h4>
+
+                </div>
+                <div class="model-item">
+                 <a href="#specs-zh2">
+                   <img src="https://i.pinimg.com/1200x/eb/55/cb/eb55cb1bcf35b24cfdc7f5f26e7a14e3.jpg" alt="Kawasaki Z H2">
+                 </a>
+                  <h4>Kawasaki Z H2</h4>
+                </div>
+                <div class="model-item">
+                  <a href="">
+                       <img src="https://images.ctfassets.net/8zlbnewncp6f/4PrsqMvvq0VKuPAszEMai4/548e2cc0759348fbe9c5ff3c8b6fc212/motocicleta-ktm-duke-1290-plano-general.jpg?w=320&h=320&fit=pad&fm=webp&q=95" alt="KTM 1290 Super Duke R">
+                  </a>
+                  <h4>KTM 1290 Super Duke R</h4>
+                </div>
+                <div class="model-item">
+                  <a href="">
+                    <img src="https://images.ctfassets.net/8zlbnewncp6f/4ZLFoBNme4s0yyTGqOirlc/72cfa590b30d5792640f35898242bdae/ducati-diavel-v4-primer-plano.png" alt="Diavel">
+                  </a>
+                  <h4>DIAVEL V4 <span class="new">NEW</span></h4>
+                </div>
+                <div class="model-item">
+                  <a href="">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR26UJxeSWcKaBst0UApXFzJwlUgFejixKXnQ&s" alt="Yamaha MT-10">
+                  </a>
+                  <h4>Yamaha MT-10</h4>
+                  
+                </div>
+                <div class="model-item">
+                  <a href="">
+                    <img src="https://www.suzuki.com.co/sites/default/files/2021-12/Luz%20Led%20Delantera.jpg" alt="Suzuki GSX-S 1000">
+                  </a>
+                  <h4>Suzuki GSX-S 1000</h4>
+
+                </div>
+              </div>
+              <!-- Superbike -->
+              <div class="category-content" data-target="superbike">
+                <div class="model-item">
+                  <a href="">
+                  <img src="" alt="Panigale V2">
+                  </a>
+                  <h4>PANIGALE V2</h4>
+                </div>
+                <div class="model-item">
+                  <a href="">
+                    <img src="" alt="Panigale V4">
+                  </a>
+                  <h4>PANIGALE V4</h4>
+                </div>
+                <div class="model-item">
+                  <a href="">
+                    <img src="" alt="">
+                  </a>
+                  <h4>PANIGALE V4 R <span class="new">NEW</span></h4>
+                </div>
+                
+              </div>
+              <!-- Adventure -->
+              <div class="category-content" data-target="adventure">
+                <div class="model-item">
+                  <a href="">
+                    <img src="" alt="">
+                  </a>
+                  <h4>MULTISTRADA V4</h4>
+                </div>
+                <div class="model-item">
+                  <a href="">
+                    <img src="" alt="DesertX">
+                  </a>
+                  <h4>DESERTX <span class="new">NEW</span></h4>
+                </div>
+              </div>
+              <!-- Scrambler -->
+              <div class="category-content" data-target="scrambler">
+                <div class="model-item">
+                  <a href="">
+                    <img src="" alt="Scrambler">
+                  </a>
+                  <h4>SCRAMBLER 800</h4>
+                </div>
+                <div class="model-item">
+                  <a href="">
+                    <img src="" alt="Scrambler 1100">
+                  </a>
+                  <h4>SCRAMBLER 1100</h4>
+                </div>
+              </div>
+              <!-- Off-Road -->
+              <div class="category-content" data-target="offroad">
+                <div class="model-item">
+                  <a href="">
+                    <img src="" alt="Desmo450">
+                  </a>
+                  <h4>DESMO450 MX</h4>
+                </div>
+              </div>
+             
+            </div>
+          </div>
+         
+        </div>
+      </li>
+     
+    </ul>
+  </nav>
+  <!-- Menú derecho (desktop) -->
+  <div class="header-right desktop-only">
+    <div class="user-menu">
+      <button id="myMotomaxBtn" class="my-motomax-btn">MY MOTOMAX ▼</button>
+      <div id="dropdownMenu" class="dropdown-menu">
+        <a href="#" id="loginLink">LOGIN</a>
+        <a href="#" id="signupLink">SIGN UP</a>
+      </div>
+    </div>
+  </div>
+    <!-- Botón hamburguesa (solo móvil) -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <!-- Menú hamburguesa (móvil) -->
+  <nav class="mobile-menu" id="mobileMenu">
+    <div class="close-btn" id="closeMenu">×</div>
+    <ul>
+      <li>
+        <a href="#" id="modelsMobileBtn">MODELS ▼</a>
+        <ul id="modelsMobileSubmenu" style="display:none; margin-left: 1rem;">
+          <li>
+            <a href="#" class="category-link" data-category="naked">Naked ▶</a>
+            <ul class="models-list" data-list="naked" style="display:none; margin-left: 1rem;">
+              <li><a href="#specs-streetfighter-v4">Ducati Streetfighter V4</a></li>
+              <li><a href="#specs-zh2">Kawasaki Z H2</a></li>
+              <li><a href="#specs-ktm-1290">KTM 1290 Super Duke R</a></li>
+              <!-- Más motos naked -->
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="category-link" data-category="superbike">Superbike ▶</a>
+            <ul class="models-list" data-list="superbike" style="display:none; margin-left: 1rem;">
+              <li><a href="#specs-panigale-v4">Ducati Panigale V4</a></li>
+              <li><a href="#specs-panigale-v2">Ducati Panigale V2</a></li>
+              <!-- Más motos superbike -->
+            </ul>
+          </li>
+          <!-- Agrega más categorías igual -->
+        </ul>
+      </li>
+      <li><a href="#" id="loginLinkMobile">LOGIN</a></li>
+      <li><a href="#" id="signupLinkMobile">SIGN UP</a></li>
+    </ul>
+  </nav>
+</header>

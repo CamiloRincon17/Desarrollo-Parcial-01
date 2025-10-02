@@ -1,0 +1,649 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f5f5;
+  line-height: 1.6;
+}
+
+/* HEADER FIJO */
+.app-header {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #e63946; /* rojo Ducati */
+}
+
+.tagline {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.main-nav {
+  display: flex;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+.main-nav li {
+  position: relative;
+}
+.main-nav button,
+.main-nav a {
+  text-align: left;
+  color: rgb(0, 0, 0);
+  background: none;
+  border: none;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.main-nav button:hover,
+.main-nav a:hover {
+  color: #fffdfd;
+}
+
+/* Mega menú de modelos */
+.has-dropdown {
+  position: relative;
+}
+.mega-menu-models {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 100;
+  background: #f0f0f0;
+  color: #222;
+  min-width: 700px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  padding: 32px 40px 24px 32px;
+  z-index: 1001;
+  border-radius: 0 0 16px 16px;
+  animation: fadeIn 0.2s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.has-dropdown:hover .mega-menu-models {
+  display: block;
+}
+.menu-layout {
+  display: flex;
+  gap: 40px;
+}
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 140px;
+}
+.categories .category {
+  background: none;
+  border: none;
+  color: #222;
+  font-size: 1rem;
+  padding: 10px 18px;
+  cursor: pointer;
+  text-align: left;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+.categories .category.active,
+.categories .category:hover {
+  background: #e63946;
+  color: #fff;
+}
+.models-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.category-content {
+  display: none;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.category-content.active {
+  display: flex;
+}
+.model-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  margin-bottom: 16px;
+}
+.model-item img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.model-item h4 {
+  font-size: 1rem;
+  color: #222;
+  text-align: center;
+  margin: 0;
+}
+.model-item .new {
+  background: #e63946;
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 8px;
+  margin-left: 6px;
+}
+.menu-footer {
+  margin-top: 24px;
+  display: flex;
+  gap: 18px;
+  justify-content: flex-end;
+}
+.btn-gray {
+  background: #eee;
+  color: #222;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-gray:hover {
+  background: #ddd;
+}
+.btn-red {
+  background: #e63946;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-red:hover {
+  background: #d62839;
+}
+
+/* Menú derecho (desktop) */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.user-menu {
+  position: relative;
+}
+.my-motomax-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+.my-motomax-btn:hover {
+  color: #e63946;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  min-width: 150px;
+  z-index: 1001;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 0.8rem 1.5rem;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.dropdown-menu a:hover {
+  background: #402929;
+}
+
+/* HERO SECTION */
+.hero-section {
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  padding: 2rem;
+  margin-top: 80px;
+}
+.btn-models{
+  text-align: left;
+
+}
+.moto-category{
+text-align: center;
+}
+.hero-section h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* SIDEBAR */
+.app-sidebar {
+  width: 240px;
+  background: #f8f9fa;
+  padding: 1.5rem 1rem;
+  border-right: 1px solid #e0e0e0;
+  height: fit-content;
+  min-height: 100%;
+}
+
+.app-sidebar h3 {
+  margin-bottom: 1.2rem;
+  color: #1d3557;
+  font-size: 1.2rem;
+}
+
+.app-sidebar ul {
+  list-style: none;
+}
+
+.app-sidebar a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #eee;
+  transition: color 0.2s;
+}
+
+.app-sidebar a:hover {
+  color: #e63946;
+}
+
+/* MAIN LAYOUT */
+.main-layout {
+  display: flex;
+  margin-top: 80px;
+  min-height: calc(100vh - 160px);
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+}
+
+/* FOOTER */
+.app-footer {
+  background: #1d3557;
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+}
+
+/* MODAL DE LOGIN */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #999;
+}
+
+.close:hover {
+  color: #333;
+}
+
+.modal-content h2 {
+  margin-bottom: 1.5rem;
+  color: #1d3557;
+  text-align: center;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 0.9rem;
+  background: #e63946;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.modal-content button:hover {
+  background: #d62839;
+}
+
+.error-message {
+  color: #e74c3c;
+  margin-top: 1rem;
+  font-weight: 600;
+  display: none;
+}
+
+/* Botón hamburguesa */
+.hamburger {
+  display: none; /* Oculto en desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1100;
+}
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: #fff;
+  margin: 3px 0;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* Solo mostrar hamburguesa en móvil */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+  }
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+/* Menú móvil */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  z-index: 1050;
+  transition: left 0.3s;
+  padding: 60px 20px 20px;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+.mobile-menu.active {
+  left: 0;
+}
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+  z-index: 1100;
+}
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+}
+.mobile-menu li {
+  margin: 20px 0;
+}
+.mobile-menu a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: block;
+  padding: 10px 0;
+  transition: color 0.2s;
+}
+.mobile-menu a:hover {
+  color: #e63946;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .mega-menu-models {
+    min-width: 400px;
+    padding: 20px 10px;
+  }
+  .menu-layout {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .models-content {
+    flex-direction: column;
+  }
+  .model-item {
+    width: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+
+  .header-left {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .main-nav,
+  .header-right {
+    display: none !important;
+  }
+
+  .hamburger {
+    display: flex;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+  }
+
+  .mobile-menu {
+    padding: 60px 15px 20px;
+  }
+}
+
+/* Mega menú: solo mostrar la categoría activa */
+.category-content {
+  display: none;
+}
+.category-content.active {
+  display: flex;
+  gap: 20px;
+}
+.model-item {
+  width: 120px;
+}
+
+.app-sidebar {
+    width: 250px;
+    transition: transform 0.3s;
+    background: #f4f4f4;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.8);
+  }
+  .app-sidebar.closed {
+    transform: translateX(-100%);
+  }
+  .sidebar-toggle-btn {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    z-index: 200;
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+    .moto-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 1rem;
+      margin: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .moto-card img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 8px;
+    }
+    .moto-card h3 {
+      margin: 0.5rem 0;
+    }
+    .moto-card .cta-btn {
+      margin-top: 0.5rem;
+      background: #e60000;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    footer {
+      background: #333;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    .footer-social {
+      margin-bottom: 0.5rem;
+    }
+    .footer-social a {
+      color: #fff;
+      margin: 0 0.5rem;
+      text-decoration: none;
+    }
+    .footer-social a:hover {
+      color: #e60000;
+    }
+
+    .hero-section {
+  position: relative;
+  min-height: 350px;
+  background-image: url('https://images.ctfassets.net/x7j9qwvpvr5s/45ZhHVy4FiYaE6voY03Y5c/1a0d4a2afb24217f6ce3eeaa4fd268ff/Ducati-MY25-Panigale-V4-ergonomia-gallery-1920x1080-01.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+}
+#moto-specs {
+  margin-top: 2rem;
+}
+  

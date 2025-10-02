@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MotoMax – Tu Aliado en Dos Ruedas</title>
+  <!--  Esta línea debe estar aquí -->
+  <link rel="stylesheet" href="css/styles.css" />
+  
+</head>
+<body>
+
+  <!-- El header se cargará aquí dinámicamente -->
+  <div id="header-container"></div>
+  <div id="sidebar-container"></div>
+
+  <!-- Modal de login (se mantiene aquí por simplicidad) -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Iniciar Sesión</h2>
+      <form id="loginForm">
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" required />
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" required />
+        <button type="submit">Entrar</button>
+      </form>
+      <p id="errorMessage" class="error-message"></p>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>WORLD CHAMPIONS</h1>
+        <p>Descubre mas </p>
+        <a href="#moto-specs" class="cta-btn">Ver modelos</a>
+      </div>
+    </section>
+
+    <!-- especificaciones de cada moto  -->
+    <section id="moto-specs">
+      <section id="naked" class="moto-category">
+        <h2>Motos Naked</h2>
+        <article id="specs-streetfighter-v4" class="moto-card">
+          <h3>Ducati Streetfighter V4</h3>
+          <img src="https://mcn-images.bauersecure.com/PageFiles/687282/Diavel-Lamborghini-01.jpg" alt="Ducati Streetfighter V4">
+          <ul>
+            <li>Motor: V4 Desmosedici Stradale</li>
+            <li>Potencia: 208 CV</li>
+            <li>Par Motor: 123 Nm</li>
+            <li>Peso: 178 kg</li>
+            <li>Precio: Desde 19.990 €</li>
+          </ul>
+          <a href="#" class="cta-btn">Más info</a>
+        </article>
+        <article id="specs-zh2" class="moto-card">
+          <h3>Kawasaki Z H2</h3>
+          <img src="https://www.motorhublatam.com/wp-content/uploads/2025/05/AKT-VOGE-525-DSX-scaled.jpg" alt="Kawasaki Z H2">
+          <ul>
+            <li>Motor: 4 cilindros en línea, 998 cc</li>
+            <li>Potencia: 203 CV</li>
+            <li>Par Motor: 114 Nm</li>
+            <li>Peso: 206 kg</li>
+            <li>Precio: Desde 17.999 €</li>
+          </ul>
+          <a href="#" class="cta-btn">Más info</a>
+        </article>
+        <!-- Más artículos naked -->
+      </section>
+      <section id="superbike" class="moto-category">
+        <h2>Superbike</h2>
+        <!-- Artículos superbike aquí -->
+      </section>
+      <section id="adventure" class="moto-category">
+        <h2>Adventure</h2>
+        <!-- Artículos adventure aquí -->
+      </section>
+      <section id="scrambler" class="moto-category">
+        <h2>Scrambler</h2>
+        <!-- Artículos scrambler aquí -->
+      </section>
+      <section id="off-road" class="moto-category">
+        <h2>Off-Road</h2>
+        <!-- Artículos off-road aquí -->
+      </section>
+      <section id="superMotar" class="moto-category">
+        <h2>SuperMotar</h2>
+        <!-- Artículos superMotar aquí -->
+      </section>
+    </section>
+  </main>
+  
+  <div id="footer-container"></div>
+  <footer>
+    <div class="footer-social">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+    <p>&copy; 2025 MotoMax. Todos los derechos reservados.</p>
+  </footer>
+
+
+  <!-- Cargamos main.js (que incluye la lógica de login Y la carga del header) -->
+  <script src="js/main.js"></script>
+</body>
+</html>
