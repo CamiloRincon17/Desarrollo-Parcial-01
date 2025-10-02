@@ -75,6 +75,17 @@ function initMobileModelsMenu() {
   });
 }
 
+// ===== Sidebar toggle =====
+function initSidebarToggle() {
+  const sidebar = document.getElementById('sidebar');
+  const toggleBtn = document.querySelector('.sidebar-toggle-btn');
+  if (sidebar && toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('closed');
+    });
+  }
+}
+
 // ===== Cargar todos los fragmentos =====
 async function loadAllComponents() {
   // Solo carga los fragmentos cuyos contenedores existan en la página actual
@@ -88,6 +99,9 @@ async function loadAllComponents() {
   }
   if (document.getElementById('sidebar-container')) {
     await loadFragment('sidebar-container', 'components/sidebar.html');
+    setTimeout(() => {
+      initSidebarToggle();
+    }, 50);
   }
   if (document.getElementById('footer-container')) {
     await loadFragment('footer-container', 'components/footer.html');

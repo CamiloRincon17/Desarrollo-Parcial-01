@@ -547,3 +547,103 @@ text-align: center;
 .model-item {
   width: 120px;
 }
+
+.app-sidebar {
+    width: 250px;
+    transition: transform 0.3s;
+    background: #f4f4f4;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.8);
+  }
+  .app-sidebar.closed {
+    transform: translateX(-100%);
+  }
+  .sidebar-toggle-btn {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    z-index: 200;
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+    .moto-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 1rem;
+      margin: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .moto-card img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 8px;
+    }
+    .moto-card h3 {
+      margin: 0.5rem 0;
+    }
+    .moto-card .cta-btn {
+      margin-top: 0.5rem;
+      background: #e60000;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    footer {
+      background: #333;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    .footer-social {
+      margin-bottom: 0.5rem;
+    }
+    .footer-social a {
+      color: #fff;
+      margin: 0 0.5rem;
+      text-decoration: none;
+    }
+    .footer-social a:hover {
+      color: #e60000;
+    }
+
+    .hero-section {
+  position: relative;
+  min-height: 350px;
+  background-image: url('https://images.ctfassets.net/x7j9qwvpvr5s/45ZhHVy4FiYaE6voY03Y5c/1a0d4a2afb24217f6ce3eeaa4fd268ff/Ducati-MY25-Panigale-V4-ergonomia-gallery-1920x1080-01.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+}
+#moto-specs {
+  margin-top: 2rem;
+}
+  

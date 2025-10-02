@@ -6,6 +6,7 @@
   <title>MotoMax – Tu Aliado en Dos Ruedas</title>
   <!--  Esta línea debe estar aquí -->
   <link rel="stylesheet" href="css/styles.css" />
+  
 </head>
 <body>
 
@@ -31,16 +32,21 @@
 
   <main>
     <section class="hero-section">
-      <h1>New Panigale V4 R</h1>
-      <p>Racing is just the beginning.</p>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>WORLD CHAMPIONS</h1>
+        <p>Descubre mas </p>
+        <a href="#moto-specs" class="cta-btn">Ver modelos</a>
+      </div>
     </section>
 
     <!-- especificaciones de cada moto  -->
     <section id="moto-specs">
       <section id="naked" class="moto-category">
         <h2>Motos Naked</h2>
-        <article id="specs-streetfighter-v4">
+        <article id="specs-streetfighter-v4" class="moto-card">
           <h3>Ducati Streetfighter V4</h3>
+          <img src="https://mcn-images.bauersecure.com/PageFiles/687282/Diavel-Lamborghini-01.jpg" alt="Ducati Streetfighter V4">
           <ul>
             <li>Motor: V4 Desmosedici Stradale</li>
             <li>Potencia: 208 CV</li>
@@ -48,9 +54,11 @@
             <li>Peso: 178 kg</li>
             <li>Precio: Desde 19.990 €</li>
           </ul>
+          <a href="#" class="cta-btn">Más info</a>
         </article>
-        <article id="specs-zh2">
+        <article id="specs-zh2" class="moto-card">
           <h3>Kawasaki Z H2</h3>
+          <img src="https://www.motorhublatam.com/wp-content/uploads/2025/05/AKT-VOGE-525-DSX-scaled.jpg" alt="Kawasaki Z H2">
           <ul>
             <li>Motor: 4 cilindros en línea, 998 cc</li>
             <li>Potencia: 203 CV</li>
@@ -58,6 +66,7 @@
             <li>Peso: 206 kg</li>
             <li>Precio: Desde 17.999 €</li>
           </ul>
+          <a href="#" class="cta-btn">Más info</a>
         </article>
         <!-- Más artículos naked -->
       </section>
@@ -85,6 +94,15 @@
   </main>
   
   <div id="footer-container"></div>
+  <footer>
+    <div class="footer-social">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+    <p>&copy; 2025 MotoMax. Todos los derechos reservados.</p>
+  </footer>
+
 
   <!-- Cargamos main.js (que incluye la lógica de login Y la carga del header) -->
   <script src="js/main.js"></script>

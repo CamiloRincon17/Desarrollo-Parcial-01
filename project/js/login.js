@@ -24,4 +24,5 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       errorMsg.style.display = "none";
     }, 3000);
   }
+  
 });
