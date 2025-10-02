@@ -6,21 +6,23 @@
   <title>Iniciar Sesión - MotoMax</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body class="login-body">
-  <div class="login-container">
-    <h2>Acceso a MotoMax</h2>
-    <form id="loginForm">
-      <label for="username">Usuario:</label>
-      <input type="text" id="username" required />
-      
-      <label for="password">Contraseña:</label>
-      <input type="password" id="password" required />
-      
-      <button type="submit">Ingresar</button>
-    </form>
-    <p id="errorMessage" class="error-message"></p>
+<body>
+  <div class="modal" style="display:block;">
+    <div class="modal-content">
+      <span class="close" onclick="window.location.href='index.html'">&times;</span>
+      <h2>Acceso a MotoMax</h2>
+      <form id="loginForm">
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" required />
+        
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" required />
+        
+        <button type="submit">Ingresar</button>
+      </form>
+      <p id="errorMessage" class="error-message"></p>
+    </div>
   </div>
-
   <script src="js/login.js"></script>
 </body>
 </html>

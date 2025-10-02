@@ -12,7 +12,8 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
   // Validar
   if (username === VALID_USERNAME && password === VALID_PASSWORD) {
-    // Redirigir a la página principal (aún no existe, pero la creamos después)
+    // Guardar estado de login
+    localStorage.setItem('isLoggedIn', 'true');
     window.location.href = "index.html";
   } else {
     // Mostrar mensaje de error
@@ -24,5 +25,11 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       errorMsg.style.display = "none";
     }, 3000);
   }
+
+    // Si no está autenticado, redirige al login
+    if (!localStorage.getItem('isLoggedIn')) {
+      window.location.href = 'login.html';
+    }
+  
   
 });
