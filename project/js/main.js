@@ -97,12 +97,8 @@ async function loadAllComponents() {
       initMobileModelsMenu(); 
     }, 50);
   }
-  if (document.getElementById('sidebar-container')) {
-    await loadFragment('sidebar-container', 'components/sidebar.html');
-    setTimeout(() => {
-      initSidebarToggle();
-    }, 50);
-  }
+
+  
   if (document.getElementById('footer-container')) {
     await loadFragment('footer-container', 'components/footer.html');
   }
