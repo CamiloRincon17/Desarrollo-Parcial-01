@@ -345,13 +345,13 @@ document.addEventListener("DOMContentLoaded", function() {
       ]
     },
     {
-      nombre: "BMW S1000RR",
-      imagen: "https://images.ctfassets.net/8zlbnewncp6f/5v0ONmcBvvDbo3YkLAkZbv/2c8df0cf7c7cf97920959fd5f92d12b8/motocicleta-bmw-s-1000-rr-plano-general-lateral__1_.jpg",
+      nombre: "YZF-R6",
+      imagen: "https://www.motorbikemag.es/wp-content/uploads/2021/11/Yamaha-R6-RACE-2022-8-760x428.jpg",
       detalles: [
-        "Motor: 4 cilindros en línea, 999 cc",
-        "Potencia: 207 CV",
-        "Peso: 197 kg",
-        "Precio: Desde 21.500 €"
+        "Motor: 4 cilindros en línea",
+        "Potencia: 118 CV",
+        "Peso: 190 kg",
+        "Precio: Desde 14.500 €"
       ]
     }
   ];
