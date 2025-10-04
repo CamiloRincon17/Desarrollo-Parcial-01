@@ -346,7 +346,7 @@ document.addEventListener("DOMContentLoaded", function() {
     },
     {
       nombre: "BMW S1000RR",
-      imagen: "https://www.bmw-motorrad.com/content/dam/bmw/marketBMW_Motorrad/marketBMW_Motorrad_en/global/images/models/sport/s1000rr/bmw-motorrad-s1000rr-modelhighlight-teaser-01.jpg",
+      imagen: "https://images.ctfassets.net/8zlbnewncp6f/5v0ONmcBvvDbo3YkLAkZbv/2c8df0cf7c7cf97920959fd5f92d12b8/motocicleta-bmw-s-1000-rr-plano-general-lateral__1_.jpg",
       detalles: [
         "Motor: 4 cilindros en línea, 999 cc",
         "Potencia: 207 CV",

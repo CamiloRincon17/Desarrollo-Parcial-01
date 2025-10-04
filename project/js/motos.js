@@ -25,9 +25,10 @@
             const estado = moto.disponible ? 
                 '<span class="estado disponible">Disponible</span>' : 
                 '<span class="estado no-disponible">No disponible</span>';
-            
+            // Generar un id único para la moto
+            const motoId = 'moto-' + (moto.marca + '-' + moto.modelo).toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '');
             return `
-                <div class="moto-card">
+                <div class="moto-card" id="${motoId}">
                     <div class="moto-header">
                         <h4>${moto.marca} ${moto.modelo}</h4>
                         ${estado}
@@ -60,7 +61,9 @@
             for (const categoria in motosData) {
                 const motos = motosData[categoria];
                 if (motos && motos.length > 0) {
-                    html += `<h3 class="categoria-titulo">${categoria}</h3>`;
+                    // Genera un id seguro para el HTML (sin espacios, minúsculas, sin caracteres especiales)
+                    const catId = 'cat-' + categoria.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '');
+                    html += `<h3 class="categoria-titulo" id="${catId}">${categoria}</h3>`;
                     html += '<div class="motos-grid">';
                     
                     motos.forEach(moto => {
