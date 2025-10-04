@@ -6,7 +6,7 @@
     const MotosService = {
         async cargarMotos() {
             try {
-                const response = await fetch('data/motos.json');
+                const response = await fetch('data/producto.json');
                 if (!response.ok) {
                     throw new Error(`Error HTTP: ${response.status}`);
                 }
@@ -150,21 +150,52 @@
         }
 
         agregarEventosMenu() {
-            // Eventos para las categorías del menú MODELS
-            const categorias = ['Superbike', 'Adventure', 'Scrambler', 'Off-Road'];
+    // Mapeo: valor del data-category → clave real en motos.json
+    const mapeoCategorias = {
+        'todas': 'todas',
+        'superbike': 'Super Sport',   
+        'adventure': 'Adventure',
+        'scrambler': 'Scrambler',
+        'offroad': 'Off-Road'        
+    };
+
+    // Seleccionar todos los botones del menú MODELS (desktop y móvil)
+    const botonesDesktop = document.querySelectorAll('.category');
+    const botonesMobile = document.querySelectorAll('.category-link');
+
+    const todosBotones = [...botonesDesktop, ...botonesMobile];
+
+    todosBotones.forEach(boton => {
+        boton.addEventListener('click', (e) => {
+            e.preventDefault(); 
+
+            // Obtener el valor de data-category
+            const key = boton.dataset.category || boton.closest('.category')?.dataset.category;
             
-            categorias.forEach(categoria => {
-                // Buscar botones con el texto de la categoría
-                const botones = document.querySelectorAll('.category');
-                botones.forEach(boton => {
-                    if (boton.textContent.trim() === categoria) {
-                        boton.addEventListener('click', () => {
-                            MotosView.filtrarPorCategoria(this.motosData, categoria, this.contenedorId);
-                        });
-                    }
-                });
-            });
-        }
+            if (!key) return;
+
+            if (key === 'todas') {
+                MotosView.renderizarMotos(this.motosData, this.contenedorId);
+            } else {
+                const categoriaReal = mapeoCategorias[key];
+                if (categoriaReal && this.motosData[categoriaReal]) {
+                    MotosView.filtrarPorCategoria(this.motosData, categoriaReal, this.contenedorId);
+                } else {
+                    console.warn(`Categoría no encontrada: ${categoriaReal}`);
+                    MotosView.renderizarMotos(this.motosData, this.contenedorId); // fallback
+                }
+            }
+        });
+    });
+
+    // ✅ Botón "Todas" en el header (si lo agregas)
+    const botonTodas = document.querySelector('[data-categoria="todas"]');
+    if (botonTodas) {
+        botonTodas.addEventListener('click', () => {
+            MotosView.renderizarMotos(this.motosData, this.contenedorId);
+        });
+    }
+}
     }
 
     // ========== INICIALIZACIÓN ==========
