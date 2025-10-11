@@ -3,10 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MotoMax – Tu Aliado en Dos Ruedas</title>
-  <!--  Esta línea debe estar aquí -->
+  <title>MotoMax – Tu Aliado en Dos Ruedas | Motocicletas Deportivas y Aventura</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Descubre las mejores motocicletas deportivas, de aventura y off-road en MotoMax. Ducati, Kawasaki, Suzuki, Honda y más. Precios competitivos y asesoría especializada.">
+  <meta name="keywords" content="motocicletas, motos deportivas, superbike, adventure, off-road, Ducati, Kawasaki, Suzuki, Honda, BMW, KTM, Harley-Davidson">
+  <meta name="author" content="MotoMax">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://motomax.com/">
+  <meta property="og:title" content="MotoMax – Tu Aliado en Dos Ruedas">
+  <meta property="og:description" content="Descubre las mejores motocicletas deportivas, de aventura y off-road. Precios competitivos y asesoría especializada.">
+  <meta property="og:image" content="https://images.ctfassets.net/x7j9qwvpvr5s/45ZhHVy4FiYaE6voY03Y5c/1a0d4a2afb24217f6ce3eeaa4fd268ff/Ducati-MY25-Panigale-V4-ergonomia-gallery-1920x1080-01.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://motomax.com/">
+  <meta property="twitter:title" content="MotoMax – Tu Aliado en Dos Ruedas">
+  <meta property="twitter:description" content="Descubre las mejores motocicletas deportivas, de aventura y off-road. Precios competitivos y asesoría especializada.">
+  <meta property="twitter:image" content="https://images.ctfassets.net/x7j9qwvpvr5s/45ZhHVy4FiYaE6voY03Y5c/1a0d4a2afb24217f6ce3eeaa4fd268ff/Ducati-MY25-Panigale-V4-ergonomia-gallery-1920x1080-01.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏍️</text></svg>">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="css/styles.css" as="style">
+  <link rel="preload" href="js/main.js" as="script">
+  
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="css/styles.css" />
   
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MotorcycleDealer",
+    "name": "MotoMax",
+    "description": "Concesionario especializado en motocicletas deportivas, de aventura y off-road",
+    "url": "https://motomax.com",
+    "logo": "https://motomax.com/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "CO"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+57-300-123-4567",
+      "contactType": "customer service"
+    }
+  }
+  </script>
 </head>
 <body>
   
@@ -17,13 +65,13 @@
 
   
 
-  <main>
-    <section class="hero-section">
-      <div class="hero-overlay"></div>
+  <main role="main">
+    <section class="hero-section" aria-label="Sección principal de bienvenida">
+      <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hero-content">
         <h1>WORLD CHAMPIONS</h1>
-        <p>Descubre mas </p>
-        <a href="#moto-specs" class="cta-btn">Ver modelos</a>
+        <p>Descubre las mejores motocicletas deportivas y de aventura del mundo</p>
+        <a href="#moto-specs" class="cta-btn" role="button" aria-label="Ver catálogo de motos">Ver modelos</a>
       </div>
     </section>
 
@@ -38,22 +86,53 @@
 </template>
 
       </section>
-      <section id="productos-dinamicos" class="moto-category">
-  <h2>Productos Destacados</h2>
-</section>
-<section id="motos-section" class="section">
-    <div class="container">
-        <h2>Motos Disponibles</h2>
-        <div id="catalogo-motos">
-            <div class="loading">Cargando catálogo de motos...</div>
+      <section id="productos-dinamicos" class="moto-category" aria-label="Productos destacados">
+        <h2>Productos Destacados</h2>
+      </section>
+      <section id="motos-section" class="section" aria-label="Catálogo de motocicletas">
+        <div class="container">
+          <h2>Motos Disponibles</h2>
+          <div id="catalogo-motos" role="region" aria-label="Catálogo de motocicletas disponibles">
+            <div class="loading" role="status" aria-live="polite">Cargando catálogo de motos...</div>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
      
     </section>
   </main>
   
   <div id="footer-container"></div>
+
+  <!-- Modal de detalles de moto -->
+  <div id="motoModal" class="moto-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close-modal" aria-label="Cerrar modal de detalles de moto" title="Cerrar">&times;</button>
+      <div class="modal-header">
+        <h2 id="modalTitle"></h2>
+        <span id="modalStatus" class="modal-status" aria-label="Estado de disponibilidad"></span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-image-container">
+          <img id="modalImage" src="" alt="" role="img">
+          <div class="image-gallery" id="imageGallery" role="group" aria-label="Galería de imágenes"></div>
+        </div>
+        <div class="modal-info">
+          <section class="specs-section" aria-labelledby="specs-heading">
+            <h3 id="specs-heading">Especificaciones</h3>
+            <ul id="modalSpecs" role="list"></ul>
+          </section>
+          <section class="description-section" aria-labelledby="description-heading">
+            <h3 id="description-heading">Descripción</h3>
+            <p id="modalDescription"></p>
+          </section>
+          <div class="modal-actions" role="group" aria-label="Acciones disponibles">
+            <button class="btn-primary" id="contactBtn" aria-label="Contactar sobre esta motocicleta">Contactar</button>
+            <button class="btn-secondary" id="favoriteBtn" aria-label="Agregar o quitar de favoritos">❤️ Favorito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <product-card titulo="Ducati Streetfighter V4" imagen="https://i.pinimg.com/736x/bc/be/06/bcbe06dc0f580da23f305a882dafd494.jpg" precio="25,000 USD" descripcion="Una naked deportiva con un motor V4 potente y un diseño agresivo."></product-card>
   <product-card titulo="Kawasaki Z H2" imagen="https://i.pinimg.com/1200x/eb/55/cb/eb55cb1bcf35b24cfdc7f5f26e7a14e3.jpg" precio="23,000 USD" descripcion="Una naked con un motor sobrealimentado que ofrece un rendimiento excepcional."></product-card>
@@ -64,6 +143,10 @@
   <!-- Cargamos main.js (que incluye la lógica de login Y la carga del header) -->
   <script src="js/main.js"></script>
   <script src="js/motos.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/lazy-loading.js"></script>
+  <script src="js/performance.js"></script>
   
   <script src="js/product-card.js"></script>
 

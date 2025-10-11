@@ -8,13 +8,36 @@
             try {
                 const response = await fetch('data/producto.json');
                 if (!response.ok) {
-                    throw new Error(`Error HTTP: ${response.status}`);
+                    throw new Error(`Error HTTP: ${response.status} - ${response.statusText}`);
                 }
                 const data = await response.json();
+                
+                // Validar estructura de datos
+                if (!data || typeof data !== 'object') {
+                    throw new Error('Formato de datos inválido');
+                }
+                
                 return data;
             } catch (error) {
-                console.error('Error al cargar el archivo motos.json:', error);
-                throw error; // No hay fallback, solo muestra error
+                console.error('Error al cargar el archivo producto.json:', error);
+                
+                // Datos de fallback en caso de error
+                return {
+                    'Superbike': [{
+                        id: 'fallback-1',
+                        marca: 'Error',
+                        modelo: 'No se pudieron cargar los datos',
+                        año: new Date().getFullYear(),
+                        imagen: 'https://placehold.co/400x300/ff6b6b/fff?text=Error+de+Carga',
+                        especificaciones: {
+                            motor: 'Error de conexión',
+                            potencia: 'N/A',
+                            peso: 'N/A',
+                            precio: 'Contactar'
+                        },
+                        disponible: false
+                    }]
+                };
             }
         }
     };
@@ -28,13 +51,16 @@
             // Generar un id único para la moto
             const motoId = 'moto-' + (moto.marca + '-' + moto.modelo).toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '');
             return `
-                <div class="moto-card" id="${motoId}">
+                <div class="moto-card" id="${motoId}" data-moto-id="${moto.id}" data-categoria="${categoria}">
                     <div class="moto-header">
                         <h4>${moto.marca} ${moto.modelo}</h4>
                         ${estado}
                     </div>
                     <div class="moto-image">
                         <img src="${moto.imagen}" alt="${moto.marca} ${moto.modelo}" onerror="this.src='https://placehold.co/400x300/ccc/fff?text=Imagen+no+disponible'">
+                        <div class="moto-overlay">
+                            <button class="view-details-btn">Ver Detalles</button>
+                        </div>
                     </div>
                     <div class="moto-especificaciones">
                         <ul>
@@ -137,15 +163,40 @@
                 // Cargar datos desde JSON externo
                 this.motosData = await MotosService.cargarMotos();
                 
+                // Verificar si hay datos válidos
+                if (!this.motosData || Object.keys(this.motosData).length === 0) {
+                    throw new Error('No se encontraron datos de motos');
+                }
+                
                 // Renderizar vista
                 MotosView.renderizarMotos(this.motosData, this.contenedorId);
                 
                 // Añadir eventos al menú MODELS
                 this.agregarEventosMenu();
                 
+                // Añadir eventos a las tarjetas de motos
+                this.agregarEventosTarjetas();
+                
+                // Refrescar lazy loading para nuevas imágenes
+                if (window.refreshLazyLoading) {
+                    setTimeout(() => window.refreshLazyLoading(), 100);
+                }
+                
             } catch (error) {
                 console.error('Error en MotosController.inicializar:', error);
-                MotosView.mostrarError(this.contenedorId, 'No se pudo cargar el catálogo de motos. Verifica que el archivo motos.json exista en la carpeta data/.');
+                
+                // Mostrar error más específico
+                let errorMessage = 'No se pudo cargar el catálogo de motos.';
+                
+                if (error.message.includes('HTTP')) {
+                    errorMessage = 'Error de conexión. Verifica tu conexión a internet.';
+                } else if (error.message.includes('JSON')) {
+                    errorMessage = 'Error en el formato de datos. Contacta al administrador.';
+                } else if (error.message.includes('No se encontraron datos')) {
+                    errorMessage = 'No hay motos disponibles en este momento.';
+                }
+                
+                MotosView.mostrarError(this.contenedorId, errorMessage);
             }
         }
 
@@ -193,8 +244,55 @@
     if (botonTodas) {
         botonTodas.addEventListener('click', () => {
             MotosView.renderizarMotos(this.motosData, this.contenedorId);
+            // Reagregar eventos después de renderizar
+            setTimeout(() => this.agregarEventosTarjetas(), 100);
         });
     }
+}
+
+agregarEventosTarjetas() {
+    // Agregar eventos a las tarjetas de motos existentes
+    const motoCards = document.querySelectorAll('.moto-card');
+    motoCards.forEach(card => {
+        // Evento para hacer clic en la tarjeta
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            const motoId = card.dataset.motoId;
+            const categoria = card.dataset.categoria;
+            
+            if (motoId && this.motosData[categoria]) {
+                const moto = this.motosData[categoria].find(m => m.id == motoId);
+                if (moto) {
+                    // Agregar categoría a los datos de la moto
+                    moto.categoria = categoria;
+                    // Abrir modal si está disponible
+                    if (window.openMotoModal) {
+                        window.openMotoModal(moto);
+                    }
+                }
+            }
+        });
+
+        // Evento para el botón "Ver Detalles"
+        const viewBtn = card.querySelector('.view-details-btn');
+        if (viewBtn) {
+            viewBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Evitar que se active el evento del card
+                const motoId = card.dataset.motoId;
+                const categoria = card.dataset.categoria;
+                
+                if (motoId && this.motosData[categoria]) {
+                    const moto = this.motosData[categoria].find(m => m.id == motoId);
+                    if (moto) {
+                        moto.categoria = categoria;
+                        if (window.openMotoModal) {
+                            window.openMotoModal(moto);
+                        }
+                    }
+                }
+            });
+        }
+    });
 }
     }
 
